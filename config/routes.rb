@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'welcome/index'
+  
+  authenticate :user do
+    resources :articles, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :articles, only: [:index, :show]
 
   resources :articles do
     resources :comments
