@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  # Code below is equivalent to authorization in config/routes.rb
+  # before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @articles = Article.all
